@@ -29,11 +29,13 @@ gobuster dir -u http://10.114.138.142/ -w /usr/share/wordlists/dirbuster/directo
 ![Picture of the gobuster dir scan](/Easy_rooms/Simple_CTF/Screenshots/02_GobusterScan.png)
 
 We notice two important things from that scan. Firstly, the "Robots.txt" file is avaiable to everyone. If we try to look at the content of that file, we dont see anything interesting there. However, visiting the other found path /simple, we get redirected to another page running "CMS made simple" . Maybe there is a CVE for this service, let's see which version of CMS is running.
+
 ![CMS Version info](/Easy_rooms/Simple_CTF/Screenshots/03_CMS.png)
 
 ## Vulnerability
 
 So, now we know it's CMS Made Simple version 2.2.8, let's try to look up a known CVE for that version! 
+
 ![CVE for CMS version 2.2.8](/Easy_rooms/Simple_CTF/Screenshots/04_CVE.png)
 
 Found it! This will be the answer to question 3! After some quick research on the CVE, we can see it's vulnerable to a SQL Injection, which answers question 4 as well. Now that we know what it's vulnerable to, we can search for an exploit. I found one on GitHub and downloaded it. [CVE-2019-9053 exploit](https://github.com/Perseus99999/CVE-2019-9053-working-/blob/main/exploit.py). I then made the exploit executable and ran it with the needed flags. (Again, if you dont run the attackbox or Kali Linux, download the rockyou.txt wordlist if you haven't already!)
@@ -47,6 +49,7 @@ exploit.py -u http://TARGET_IP/simple/ -c -w /usr/share/wordlists/rockyou.txt
 ```
 !Please note that the exploit might take some time until it finds the password!
 After the exploit is done, we get a lot of valuable information
+
 ![Result of the Exploit](/Easy_rooms/Simple_CTF/Screenshots/05_ExploitResult.png)
 
 With that, we can answer question 5! I firstly tried to find another hidden directory using another gobuster dir mode enumeration, and I found one, this being /admin. I was also able to login with the obtained details, but there wasn't anything special and also didn't answer question 6. After some After some confusion, I remembered that ssh is running on port 2222, which I even stated to keep in mind at the beginning of this write-up, silly me! So, I opened up terminal again and ssh'd using the credentials
@@ -59,6 +62,7 @@ ssh -p 2222 REDACTED@10.114.138.142
 
 ## Post Exploitation
 Now that we have access to the host through user REDACTED, we need to escalate our privileges! First of all, for the user flag, we can list the content from REDACTED's home and submit the contents of the file as the answer to question 7
+
 ![first flag](/Easy_rooms/Simple_CTF/Screenshots/06_user_flag.png)
 
 Okay, now for the next question, question 8, we need to figure out if there is another user, we can run
@@ -77,7 +81,9 @@ Sadly, I don't have any prior experience with vim and had no idea how to use the
 sudo vim -c '!sh' 
 ```
 After that, I was able to run commands as root and check the root user's content
+
 ![root flag](/Easy_rooms/Simple_CTF/Screenshots/07_user_flag.png)
+
 And there it is. the root flag, the question to the final question!
 
 ## Conclusion
