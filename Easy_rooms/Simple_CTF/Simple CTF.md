@@ -52,7 +52,7 @@ After the exploit is done, we get a lot of valuable information
 
 ![Result of the Exploit](/Easy_rooms/Simple_CTF/Screenshots/05_ExploitResult.png)
 
-With that, we can answer question 5! I firstly tried to find another hidden directory using another gobuster dir mode enumeration, and I found one, this being /admin. I was also able to login with the obtained details, but there wasn't anything special and also didn't answer question 6. After some After some confusion, I remembered that ssh is running on port 2222, which I even stated to keep in mind at the beginning of this write-up, silly me! So, I opened up terminal again and ssh'd using the credentials
+With that, we can answer question 5! I firstly tried to find another hidden directory using another gobuster dir mode enumeration, and I found one, this being /admin. I was also able to login with the obtained details, but there wasn't anything special and also didn't answer question 6. After some confusion, I remembered that ssh is running on port 2222, which I even stated to keep in mind at the beginning of this write-up, silly me! So, I opened up terminal again and ssh'd into the machine using the credentials
 
 ```bash
 ssh -p 2222 REDACTED@10.114.138.142
@@ -84,7 +84,7 @@ After that, I was able to run commands as root and check the root user's content
 
 ![root flag](/Easy_rooms/Simple_CTF/Screenshots/07_user_flag.png)
 
-And there it is. the root flag, the question to the final question!
+And there it is. the root flag, the answer to the final question!
 
 ## Conclusion
 Well, that was a fun and easy CTF! The third one I solved so far. I am happy to see I am getting better. I even learned something new from that CTF! I am looking forward to writing more write ups in the future. I tried to make this write-up as detailed as possible, so beginners can follow along without being confused. Hopefully this write-up helped you out! :D
