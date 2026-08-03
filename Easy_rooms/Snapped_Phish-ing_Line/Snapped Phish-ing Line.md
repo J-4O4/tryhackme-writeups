@@ -64,7 +64,7 @@ sha256sum ...365.zip
 
 
 
-After that, we analyze the hash on \[VirusTotal](https://www.virustotal.com/gui/home/search). Enter the hash to see the VirusTotal results. There, all we have to do is look for the "Threat categories" found at the "DETECTION" tab
+After that, we analyze the hash on [VirusTotal](https://www.virustotal.com/gui/home/search). Enter the hash to see the VirusTotal results. There, all we have to do is look for the "Threat categories" found at the "DETECTION" tab
 
 
 
@@ -117,7 +117,7 @@ I returned to the URL from the HTML file found at the beginning of the room. I r
 
 
 
-Finally, we decode the base64 string. I used \[CyberChef](https://gchq.github.io/CyberChef/) as the Task suggested, which turned out to be more helpful than just a base64 decode website. When you decode the Base64 string, the flag will be written out in reversed format, this is why CyberChef is useful for this task, as you can reverse the characters of your input with the Reverse operation.
+Finally, we decode the base64 string. I used [CyberChef](https://gchq.github.io/CyberChef/) as the Task suggested, which turned out to be more helpful than just a base64 decode website. When you decode the Base64 string, the flag will be written out in reversed format, this is why CyberChef is useful for this task, as you can reverse the characters of your input with the Reverse operation.
 
 
 
