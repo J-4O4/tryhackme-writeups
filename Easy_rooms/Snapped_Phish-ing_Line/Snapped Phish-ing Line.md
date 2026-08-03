@@ -1,8 +1,8 @@
-\# Snapped Phish-ing Line Write-up
+# Snapped Phish-ing Line Write-up
 
 
 
-!\[Picture of the room](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/00\_The-Room.png)
+![Picture of the room](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/00_The-Room.png)
 
 
 
@@ -10,7 +10,7 @@ Another room focusing on phishing. In my previous write-up, I covered the Greenh
 
 
 
-\## Email investigation
+## Email investigation
 
 
 
@@ -18,7 +18,7 @@ I'll start by opening the phish-emails folder and open the email named "Quote fo
 
 
 
-!\[email header information](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/01\_email-header.png)
+![email header information](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/01_email-header.png)
 
 
 
@@ -28,7 +28,7 @@ Next, open the email addressed to Zoe Ducan, it's the one next to the email we j
 
 
 
-!\[redirecting URL](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/02\_redirecting-URL.png)
+![redirecting URL](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/02_redirecting-URL.png)
 
 
 
@@ -36,13 +36,13 @@ However, we are now forced to open the page to figure out which brand the login 
 
 
 
-!\[Fake login page](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/03\_login-page.png)
+![Fake login page](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/03_login-page.png)
 
 
 
 Once we've done that, we will navigate to the /data directory of the site. Luckily, the attacker exposes valuable information in that directory. There, we should look for the archive file, which is likely the ZIP archive
 
-!\[Data directory](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/04\_Data-Directory.png)
+![Data directory](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/04_Data-Directory.png)
 
 
 
@@ -51,20 +51,16 @@ Download that zip file, open your terminal, and enter the following commands to 
 
 
 ```bash
-
 cd Downloads
-
 sha256sum ...365.zip
-
 ```
 
 
-
-!\[Calculated hash](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/05\_Hash-calculated.png)
-
+![Calculated hash](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/05_Hash-calculated.png)
 
 
-\## File Analysis using VirusTotal
+
+## File Analysis using VirusTotal
 
 
 
@@ -72,7 +68,7 @@ After that, we analyze the hash on \[VirusTotal](https://www.virustotal.com/gui/
 
 
 
-!\[Threat category](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/06\_VirusTotal-Detection.png)
+![Threat category](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/06_VirusTotal-Detection.png)
 
 
 
@@ -80,11 +76,11 @@ Continue by moving to the "DETAILS" tab of VirusTotal, scroll down a Tiny bit an
 
 
 
-!\[Contained Files](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/07\_VirusTotal-Details.png)
+![Contained Files](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/07_VirusTotal-Details.png)
 
 
 
-\## Further fake Login page investigation
+## Further fake Login page investigation
 
 
 
@@ -97,22 +93,19 @@ At this point, we can extract the .zip file we discovered earlier since we are o
 
 
 ```text
-
 Update365 -> office365 -> Validation -> submit.php
-
 ```
-
 
 
 I moved the file to my Desktop, opened a terminal and used grep to detect the email address. 
 
 
 
-!\[Detecting the email](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/08\_Email-detected.png)
+![Detecting the email](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/08_Email-detected.png)
 
 
 
-\## Finding the Flag
+## Finding the Flag
 
 
 
@@ -120,7 +113,7 @@ I returned to the URL from the HTML file found at the beginning of the room. I r
 
 
 
-!\[Hidden flag.txt](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/09\_Secret-text.png)
+![Hidden flag.txt](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/09_Secret-text.png)
 
 
 
@@ -128,11 +121,11 @@ Finally, we decode the base64 string. I used \[CyberChef](https://gchq.github.io
 
 
 
-!\[Discovered Flag](/Easy\_rooms/Snapped\_Phish-ing\_Line/Screenshots/10\_The-Flag.png)
+![Discovered Flag](/Easy_rooms/Snapped_Phish-ing_Line/Screenshots/10_The-Flag.png)
 
 
 
-\## Conclusion
+## Conclusion
 
 Yet another fun challenge and and fairly easy, you really get to practice the skills you've learned in the Phishing Analysis module! A great way to wrap up the module! I hope this write-up was helpful if you had some problems! 
 
