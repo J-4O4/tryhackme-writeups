@@ -1,0 +1,98 @@
+# New Hire Old Artifacts Write-up
+
+![Picture of the room](/Medium_rooms/New-Hire-Old-Artifacts/Screenshots/00_Room.png)
+
+Another medium-difficulty Splunk challenge! We are SOC analysts working for an MSSP and will be investigating the events of our customer called Widget LLC using Splunk. Visit the Splunk interface hosted on the lab machine and let's get started
+
+
+First of all we will navigate to the Search tab of Splunk. Since the data wasn't stored with an index, we will look for every event in their interface, using:
+
+```text
+index=*
+```
+
+There are a total of 27,378 events! Although we might wont need it, it may be helpful to take note of the existing values of the source and sourcetype field. The first thing you'll notice is that every value of these fields are different Win Event logs. 
+
+Anyways, to discover the path of the Web Browser Password Viewer, I will add a string to my search query using keywords like "Password" or "Browser"
+
+```text
+index=* "Password" OR "Browser"
+```
+
+![First query](/Medium_rooms/New-Hire-Old-Artifacts/Screenshots/01_Browser-Password-viewer.png)
+
+Looking at the interesting fields after our query, we will locate a company field, so all we have to do is add that to our query
+
+```text
+index=* "Password" OR "Browser" company
+```
+
+![company field](/Medium_rooms/New-Hire-Old-Artifacts/Screenshots/02_company-field.png)
+
+> I've created a table for visualization purposes, using my provided query above will give you the company name as well, I just thought creating a table was good practise
+
+Moving forward, we need to figure out what the second binary executed from the same Folder (\temp) is. My first approach was to simply search for the path where the first binary, the Web browser Password Viewer was executed, but that wasn't successful. I took a step back, and only added the folder "\temp" to my query. I inspected the field "Image" under interesting fields and found another suspicious .exe file in the same folder, just by a different user!
+
+![inspecting Image field](/Medium_rooms/New-Hire-Old-Artifacts/Screenshots/03_inspecting-image-field.png)
+
+Okay, now just click on that Path to add it to our query. Now we only need the Original file name. If you paid attention, you would've found out there is a field called "OriginalFileName", so that will be added to our query
+
+```text
+index=* "\temp" Image="C:\\Users\\Finance01\\AppData\\Local\\Temp\\...Large.exe" OriginalFilename
+``` 
+
+![OriginalFileName](/Medium_rooms/New-Hire-Old-Artifacts/Screenshots/04_OriginalFileName.png)
+
+Turns out the binary made two outbound connections to a malicious IP address. There is a DestinationIp filed with 8 values. We could replace OriginalFileName from our previous query with the DestinationIp field. However, since we know the binary established two outbound connections, it is enough to just look at the values of this field to see which IP has a count of 2. After that, just defang it with [CyberChef](https://gchq.github.io/CyberChef/)
+
+![Malicous IP](/Medium_rooms/New-Hire-Old-Artifacts/Screenshots/05_maliciousIP.png)
+
+Following that, we gotta discover which Registry key was changed. I'll add the EventCode field and set its value to 13, because that's the event ID for when a registry value was modified. I'll also search for the TargetObject field to actually see which registry key was targeted. Turns out there's more than just one, so we will need to look for the one that fits to the question Format.
+
+```text
+index=* Image="C:\\Users\\Finance01\\AppData\\Local\\Temp\\IonicLarge.exe" EventCode=13 TargetObject
+```
+
+![Registry Key set](/Medium_rooms/New-Hire-Old-Artifacts/Screenshots/06_Targeted-Registry-key.png)
+
+I tried to find out which binaries got killed and deleted using Windows Event IDs. I found Event ID 4689 for when any process exits or terminates, and ID 4660 for when an object got deleted. Both of which weren't in the logs. Since that approach didn't produce any results, I decided to use the room hint. With that, all I had to do is create a query with "taskkill /im"
+
+```text
+index=* "taskkill /im"
+```
+> No Picture as there are only Five events and you just need to copy the 2 diffrent file names following the command
+
+
+Furthermore, we need to find PowerShell commands that changed the behavior of Microsoft Defender. Thanks to the last Question, I noticed there is a "ParentCommandLine" field, so I only had to filter for that field in my query and search for the string PowerShell.
+
+```text
+index=* ParentCommandLine "Powershell"
+```
+
+There, all I had to do is look for a command that changes Microsoft Defender behavior
+
+![The powershell command](/Medium_rooms/New-Hire-Old-Artifacts/Screenshots/07_powershell-command.png)
+
+Almost done! Now we need to find the four IDs set by the attacker. Judging by the command we just found, the Ids are set with "ThreatIDDefaultAction_Ids", so I will add that command to the previous query to only find commands where an ID was set.
+
+```text
+index=* ParentCommandLine "Powershell" "ThreatIDDefaultAction_Ids"
+```
+
+> From here on, there are just 17 events, look at each value of the ThreatIDDefaultAction_Ids PowerShell function and pay attention to their values until you've found all 4 IDs
+
+Coming to the end, we are tasked to uncover one more malicious binary which was executed by the attacker. I've already found it while searching for the other binary from the beginning of the room. Luckily it's really easy to uncover, we just need to search for "AppData" in our logs using `index=* "\AppData"`
+
+![Registry Key set](/Medium_rooms/New-Hire-Old-Artifacts/Screenshots/08_binary-in-AppData.png)
+
+Last but not least, let's find out which DLLs were loaded by this binary. To do so, I will use a query with the ImageLoaded field, and searching for strings like the path of the executable and the `.dll` extension. This will reveal all we need.
+
+```text
+index=* ImageLoaded "C:\\Users\\Finance01\\AppData\\Roaming\\EasyCalc\\EasyCalc.exe" ".dll"
+```
+
+![loaded DLLs](/Medium_rooms/New-Hire-Old-Artifacts/Screenshots/09_loaded-DLLs.png)
+
+## Conclusion
+This room focused heavily on log analysis and Splunk queries. I hope you could follow along without any trouble! There's still one question that doesn't require an answer. It's suggesting you another room called "Ollie" to learn more. Since it's a Boot2Root room by the looks of it, and a medium difficulty, I will not do it for now as I am not that good in such challenges. However, I saved the room for the future, so if I've done the room, you will find my write-up to it [here](#) 
+     
