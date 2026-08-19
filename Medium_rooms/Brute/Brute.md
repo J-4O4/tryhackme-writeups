@@ -134,7 +134,7 @@ Using the password found by hydra, we will ssh into the target machine as the ad
 
 ## Privilege escalation
 
-Okay, even getting to the Adrian user took me long enough already, and now we need to escalate our privileges to root, which I must say I am not really great at. I tried some basic ones like checking the SUID executables, but I cant really seem to find anything interesting in all of them. So I took a step back and looked at the Adrian user again, as there were more files that just the ones I already mentioned. There is this `punch_in.sh` Only adrian can read, but root owns it. 
+Okay, even getting to the Adrian user took me long enough already, and now we need to escalate our privileges to root, which I must say I am not really great at. I tried some basic commands like checking the SUID executables, but I cant really seem to find anything interesting in all of them. So I took a step back and looked at the Adrian user again, as there were more files that just the ones I already mentioned. There is this `punch_in.sh` Only adrian can read, but root owns it. 
 
 ```text
 -rw-r----- 1 adrian adrian  2660 Aug 19 17:14 punch_in
