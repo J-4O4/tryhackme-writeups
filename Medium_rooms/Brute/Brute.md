@@ -80,7 +80,7 @@ Clicking on the log Button in the middle doesn't really do anything. I tried som
 
 ![Failed FTP logs](/Medium_rooms/Brute/Screenshots/07_FTP-failed.png)
 
-This confused me even more! I didn't know what to do, but it seemed suspicious that. I really dont like using AI for CTFs like that, but I got stuck and just had to ask. ChatGPT told me it could be some kind of log poisoning or Log Injection which could result in XSS. I did some research on Log poisoning and found this:
+This confused me even more! I didn't know what to do, but it seemed suspicious. I really dont like using AI for CTFs like that, but I got stuck and just had to ask. ChatGPT told me it could be some kind of log poisoning or Log Injection which could result in XSS. I did some research on Log poisoning and found this:
 > The attacker sends malicious data - such as PHP code or command payloads - through HTTP headers like User-Agent or X-Forwarded-For. 
 
 Since these logs aren't HTTP logs but FTP logs, maybe I could enter a PHP code through FTP. I thought I would need a successful Login via FTP to execute the command, so I wasted some time with that, until I found out I don't really need a valid session, I just need to be connected: `ftp <target_ip>`. Figuring out what kind of PHP command to type in wasn't that difficult. I looked up some Log Poisoning examples and found out attackers enter a simple PHP command that establishes a web shell:
