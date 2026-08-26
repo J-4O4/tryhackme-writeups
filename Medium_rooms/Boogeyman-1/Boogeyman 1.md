@@ -16,7 +16,7 @@ Let's gather information about how the boogeyman get's his victims. The fiance t
 ![The phishing mail](/Medium_rooms/Boogeyman-1/Screenshots/01_Phishing-mail.png)
 > I had to redact a lot as it answers some of the questions of this task
 
-As you can see the e-mail looks very legitimate at first glance. It's a good idea to look at the email source to find out more about the sender, like the IP address. We could theoretically look up the Email on Cyber threat intelligence websites to get an idea where the actor is located. However, for this task we need to specifically look at the **DKIM-Signature** and **List-Unsubscribe** headers, so let's open that terminal!
+As you can see the e-mail looks very legitimate at first glance. It's a good idea to look at the email source to find out more about the sender, like the IP address. We could theoretically look up the IP on Cyber threat intelligence websites to get an idea where the actor is located. However, for this task we need to specifically look at the **DKIM-Signature** and **List-Unsubscribe** headers, so let's open that terminal!
 
 ![DKIM header values](/Medium_rooms/Boogeyman-1/Screenshots/02_Email-header.png)
 
