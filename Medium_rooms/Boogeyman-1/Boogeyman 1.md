@@ -6,8 +6,8 @@
 Boo! The Boogeyman is here! This room is part of the 3 part long Boogeyman series from the SOC Level 1 Capstone Challenges module. I am looking forward to write a write-up for each of them. Now let's scare the boogeyman away, shall we?
 
 **You can find the Write-ups to the other rooms once I am done with them:**
-- [Boogeyman 2](/Medium_rooms/Boogeyman-2)
-- [Boogeyman 3](/Medium_rooms/Boogeyman-3)
+- [Boogeyman 2](/Medium_rooms/Boogeyman-2/Boogeyman%202.md)
+- [Boogeyman 3](/Medium_rooms/Boogeyman-3/Boogeyman%203.md)
 
 ## Email Analysis
 
@@ -97,6 +97,6 @@ Just concatenate the cleaned file and copy the content in there, go to CyberChef
 
 ## Conclusion
 
-We hunted down the boogeyman, congrats! They were targeting fiance groups with personalized emails, established a connection to their c2 sever and exfiltrate valuable data like credit card numbers. Now go ahead, you never know when the boogeyman will strike again -> [Boogeyman 2](/Medium_rooms/Boogeyman-2)
+We hunted down the boogeyman, congrats! They were targeting fiance groups with personalized emails, established a connection to their c2 sever and exfiltrate valuable data like credit card numbers. Now go ahead, you never know when the boogeyman will strike again -> [Boogeyman 2](/Medium_rooms/Boogeyman-2/Boogeyman%202.md)
 
 
