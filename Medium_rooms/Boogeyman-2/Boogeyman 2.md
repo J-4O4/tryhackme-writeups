@@ -2,11 +2,11 @@
 
 ![Picture of the room](/Medium_rooms/Boogeyman-2/Screenshots/00_Room.png)
 
-SOS! the Boogeyman is back, this time with new tactics, techniques and procedures. The last time, the boogeyman targeted the Quick Logistics LLC fiance office. You can view my write up to the first boogeyman here: [Boogeyman 1](/Medium_rooms/Boogeyman-1) . This time, the HR office got targeted, and we've got a copy of the phishing email and a memory dump of the victims workstation to analyse what the Boogeyman caused now. 
+SOS! the Boogeyman is back, this time with new tactics, techniques and procedures. The last time, the boogeyman targeted the Quick Logistics LLC fiance office. You can view my write up to the first boogeyman here: [Boogeyman 1](/Medium_rooms/Boogeyman-1/Boogeyman%201.md) . This time, the HR office got targeted, and we've got a copy of the phishing email and a memory dump of the victims workstation to analyse what the Boogeyman caused now. 
 
 **Check out my other Write-ups to the Boogeyman series here**:
-- [Boogeyman 1](/Medium_rooms/Boogeyman-1/Boogeyman 1.md)
-- [Boogeyman 3](/Medium_rooms/Boogeyman-3)
+- [Boogeyman 1](/Medium_rooms/Boogeyman-1/Boogeyman%201.md)
+- [Boogeyman 3](/Medium_rooms/Boogeyman-3/Boogeyman%203.md)
 
 ## Email Analysis
 
@@ -71,4 +71,4 @@ In the first box, you can see the command of a scheduled task being created, and
 
 ## Conclusion
 
-For this room, I had to learn volatility in order to do the memory forensics, so if the second part of the write-up felt confusing I am sorry. I still tried my best to make it as understanding as possible! I also had fun completing this room as it was something new. Memory forensics is fun! Anyways, we caught the boogeyman yet again, hopefully he will move on to his next target and leave us alone.... oh.. [Boogeyman 3](/Medium_rooms/Boogeyman-3)
+For this room, I had to learn volatility in order to do the memory forensics, so if the second part of the write-up felt confusing I am sorry. I still tried my best to make it as understanding as possible! I also had fun completing this room as it was something new. Memory forensics is fun! Anyways, we caught the boogeyman yet again, hopefully he will move on to his next target and leave us alone.... oh.. [Boogeyman 3](/Medium_rooms/Boogeyman-3/Boogeyman%203.md)
