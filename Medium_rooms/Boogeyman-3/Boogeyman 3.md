@@ -5,7 +5,7 @@
 Oh noo!! The boogeyman is back again, and this time he is targeting the CEO! Such a pain in the neck! Let's do this one more time and scare him away for ever. Quick Logistics LLC hired a managed security service provider (MSSP) this time, so our job is to analyse the provided logs with our SIEM, Elastic stack (ELK).
 
 **Check out my write-ups to the other rooms of the series:**
-- [Boogeyman 1](/Medium_rooms/Boogeyman-1/Boogeyman%201.mc)
+- [Boogeyman 1](/Medium_rooms/Boogeyman-1/Boogeyman%201.md)
 - [Boogeyman 2](/Medium_rooms/Boogeyman-2/Boogeyman%202.md)
 
 
