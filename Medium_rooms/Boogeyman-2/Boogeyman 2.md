@@ -5,7 +5,7 @@
 SOS! the Boogeyman is back, this time with new tactics, techniques and procedures. The last time, the boogeyman targeted the Quick Logistics LLC fiance office. You can view my write up to the first boogeyman here: [Boogeyman 1](/Medium_rooms/Boogeyman-1) . This time, the HR office got targeted, and we've got a copy of the phishing email and a memory dump of the victims workstation to analyse what the Boogeyman caused now. 
 
 **Check out my other Write-ups to the Boogeyman series here**:
-- [Boogeyman 1](/Medium_rooms/Boogeyman-1)
+- [Boogeyman 1](/Medium_rooms/Boogeyman-1/Boogeyman 1.md)
 - [Boogeyman 3](/Medium_rooms/Boogeyman-3)
 
 ## Email Analysis
