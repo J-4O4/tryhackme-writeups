@@ -90,7 +90,7 @@ sudo bash -i
 
 Perfect, this means we can do whatever we want now. Since the Ubuntu user doesn't have anything for our needs, I decided to check other files that I can access now, such as the `/root` directory. And there we have it, the last ingredient
 
-![3rd Ingredient](/Easy_rooms/Pickle-Rick/Screenshots/11_3rd.png)
+![3rd Ingredient](/Easy_rooms/Pickle-Rick/Screenshots/11_3RD.png)
 
 ## Conclusion
 
