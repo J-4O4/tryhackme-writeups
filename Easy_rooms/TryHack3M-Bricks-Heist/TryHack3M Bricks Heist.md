@@ -45,7 +45,7 @@ I checked the Source code for a bit and noticed some things:
   ![Picture of the room](/Easy_rooms/TryHack3M-Bricks-Heist/Screenshots/02_WordPress.png)
 - Several WordPress APIs are in use and could potentially exploited
 - Trying to access the assets of the web page responses with a 403 Forbidden error code (https://bricks.thm/wp-content/themes/bricks/assets/)
-- Whenever you try to access a page, you get redirected to this page
+- Whenever you try to access a page that doesn't exit, you get redirected to this page
   ![Picture of the room](/Easy_rooms/TryHack3M-Bricks-Heist/Screenshots/03_Page-not-Found.png)
 - Searching something there created following Search query: `/?s=SearchTerm`
   > I tried to see if the Server would respond with sensitive Data
@@ -103,7 +103,7 @@ Our BusyBox reverse shell wont give any supportive feedback messages, so if some
 Now let's change the directory to: `cd /lib/NetworkManager/`
 Of course, let's list what's in there. Once I did that, I looked in some files that could be of importance like `conf.d` or `inet.conf`. Turns out `inet.conf` is the log file for the bitcoin miner:
 
-![Picture of the room](/Easy_rooms/TryHack3M-Bricks-Heist/Screenshots/12_log-file.png)
+![Picture of the room](/Easy_rooms/TryHack3M-Bricks-Heist/Screenshots/12_log-data.png)
 
 Notice the ID there? If you are starting a bitcoin miner, you would want the mined data to be transferred to your wallet. This log here shows that the Bitcoin miner was started, but in order to be started, it should know to which ID it should transfer the bitcoins to. I noted the ID for now, however, before trying to do something with it. I generated the md5 hash for the running process on the system we identified before, to look it up on Cyber threat intel sites to maybe get a wallet address there. VirusTotal didn't have anything useful, not even to which threat Group it could belong.
 Instead I went back to the ID and tried to decode it. Threat actors love to encode their code or sensitive data which they don't want to be identified that easily. I went to CyberChef and used it's magic option:
