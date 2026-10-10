@@ -33,7 +33,7 @@ To sum up what the code does: There are hard coded credentials, not even encrypt
 
 Let's test that out. If you are lazy (like I am), just use [CyberChef](https://gchq.github.io/CyberChef/#recipe=Reverse('Character')) and use the "reverse" recipe, so you don't need to type the reversed password in manually 
 
-![Source code](/Easy_rooms/CyberHeroes/Screenshots/05_Flag.png)
+![Redacted Flag](/Easy_rooms/CyberHeroes/Screenshots/05_Flag.txt.png)
 
 And that's it! 
 
