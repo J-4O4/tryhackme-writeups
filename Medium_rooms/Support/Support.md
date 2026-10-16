@@ -85,7 +85,7 @@ We can now access the `/api.php` page, `/config.php` is still not visible for us
 
 I tried BOLA first, changing the ID of the user to `/user/1` gave us the admin e-mail, which we could potentially brute force again. I also tried mass assignment to set `admin:true` for the help account with a PATCH request, but that failed. 
 
-![E-mail of admin](/Medium_rooms/Support/Screenshots/09_admin-email.png)
+![E-mail of admin](/Medium_rooms/Support/Screenshots/09_admin_email.png)
 
 I wasted a lot of time trying to brute force the password, so I went back to the `/dashboard` site. Since changing the Cookie changed the Helpdesk site and added the option to view the API, I tried earlier approaches again, and turns out path traversal actually works now! Changing the skin Parameter value to `?skin=../config` actually shows the content of that file! I only found that out of frustration, as I was stuck for quite some while, that I just decided to retry old approaches. 
 
