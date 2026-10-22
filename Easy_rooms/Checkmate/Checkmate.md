@@ -104,7 +104,7 @@ Now this is rather a hash cracking exercise than a password cracking one. After 
 
 ![Profile picture](/Easy_rooms/Checkmate/Screenshots/07_pfp.png)
 
-Copy the name of the profile picture (See URL) without the `.png` and try to crack it with a tool like hashcat. You could use a online tool for this like [hashes.com](https://hashes.com/en/decrypt/hash), however, usually it's better to use an offline tool like hashcat since every hash you upload will also be uploaded to a foreign server. In a CTF practice like this, that doesn't matter, but when dealing with sensitive data, you should crack them on your own machine. Until recently, I also used online tools to crack them (I even made a whole write-up with them for [Crack_the_hash](/Crack%20the%20hash)), but now I prefer hashcat. Here is how
+Copy the name of the profile picture (See URL) without the `.png` and try to crack it with a tool like hashcat. You could use a online tool for this like [hashes.com](https://hashes.com/en/decrypt/hash), however, usually it's better to use an offline tool like hashcat since every hash you upload will also be uploaded to a foreign server. In a CTF practice like this, that doesn't matter, but when dealing with sensitive data, you should crack them on your own machine. Until recently, I also used online tools to crack them (I even made a whole write-up with them for [Crack_the_hash](/Easy_rooms/Crack_the_hash/Crack%20the%20hash)), but now I prefer hashcat. Here is how
 
 ```bash
 1. echo 'd34a569ab7aaa54dacd715ae64953455d86b768846cd0085ef4e9e7471489b7b' >> hash.txt
