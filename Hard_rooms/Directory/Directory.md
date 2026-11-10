@@ -61,7 +61,7 @@ hashcat -a 0 -m 18200 hash1.txt /usr/share/wordlists/rockyou.txt
 
 I already knew I had to decrypt the WinRM traffic with the hash. However, I never did something like that before, so at first I was kinda overwhelmed. Luckily, there was this medium write-up which explains how to decrypt NTML and Kerberos hashes really well. I linked this blog post in the **references** section at the end of the write-up
 
-![Cracked Password](/Hard_rooms/Directory/Screenshots/07_Decrypted-traffic.png)
+![Cracked Password](/Hard_rooms/Directory/Screenshots/07_Decrypting-traffic.png)
 
 With that, I was able to decrypt some packets in wireshark, but that felt really inefficient. I thought there needs to be an easier way to do that, other than using wireshark to decrypt it like the guy in the blog post did.
 So what did I do you may ask? I did some good ol' research on how to decrypt WinRM traffic over HTTP. I found the following script: [winrm_decrypt.py](https://gist.github.com/jborean93/d6ff5e87f8a9f5cb215cd49826523045/)
