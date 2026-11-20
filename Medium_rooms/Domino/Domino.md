@@ -78,7 +78,7 @@ For the brute forcing attempt, I am running ffuf, as I feel like it runs faster 
 ffuf -w users.txt:W1,/usr/share/wordlists/rockyou.txt:W2 -X POST -d "username=W1&password=W2" -H "Content-Type: application/x-www-form-urlencoded" -u http://10.112.130.87 -fc 200
 ```
 
-![Picture of the room](/Medium_rooms/Domino/Screenshots/08_decoded-conf.png)
+![Picture of the room](/Medium_rooms/Domino/Screenshots/08_ffuf%20results.png)
 
 Since we got valid credentials so quick, I didn't use sqlmap. The most interesting user is probably Sarah Johnson, as she is a senior software engineer. Logging in as her, we see the following
 
